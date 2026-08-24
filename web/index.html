@@ -529,7 +529,7 @@
         }
       }
 
-      /* Wear — Stitch two-home gallery: copy + still, then 3 states */
+      /* Wear — Stitch two-home gallery: copy + still, then two views */
       .wear {
         background: var(--surface);
       }
@@ -552,10 +552,10 @@
       }
       .wear-still {
         --focal-x: 50%;
-        --focal-y: 50%;
+        --focal-y: 48%;
         --origin-x: 50%;
         --origin-y: 50%;
-        --zoom: 1.72;
+        --zoom: 1.2;
         position: relative;
         display: grid;
         grid-template-rows: 4px 1fr;
@@ -581,21 +581,23 @@
         transform-origin: var(--origin-x, 50%) var(--origin-y, 50%);
         background: #f3f3f3;
       }
-      .gallery.three {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .wear-gallery .light-card {
+      .wear-still.object {
         --focal-x: 50%;
-        --focal-y: 51%;
-        --origin-x: 50%;
-        --origin-y: 50%;
-        --zoom: 1.9;
+        --focal-y: 50%;
+        --zoom: 1.35;
       }
-      .wear-gallery .light-card::before {
-        content: "";
-        display: block;
-        height: 4px;
-        background: var(--oak);
+      .wear-views {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 48px;
+        margin-top: 16px;
+      }
+      .wear-view {
+        margin: 0;
+        grid-column: 2;
+      }
+      .wear-view figcaption {
+        font-style: normal;
       }
       @media (max-width: 860px) {
         .wear-split {
@@ -604,10 +606,11 @@
         .wear-visual {
           order: -1;
         }
-      }
-      @media (max-width: 720px) {
-        .gallery.three {
+        .wear-views {
           grid-template-columns: 1fr;
+        }
+        .wear-view {
+          grid-column: 1;
         }
       }
 
@@ -760,19 +763,20 @@
       }
       .matrix th {
         text-align: left;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--muted);
-        padding: 0 8px 10px;
+        padding: 0 6px 8px;
         border-bottom: 1px solid var(--line);
       }
       .matrix td {
-        padding: 12px 8px;
+        padding: 6px;
         border-bottom: 1px solid var(--line);
         vertical-align: top;
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.3;
         color: var(--color-text);
       }
       .matrix tr {
@@ -792,81 +796,49 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        min-width: 6.75rem;
       }
       .matrix-light strong {
         display: block;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: var(--color-primary);
       }
       .matrix-light span {
         display: block;
-        font-size: 12px;
+        font-size: 11px;
         color: var(--muted);
       }
       .matrix-phrase {
-        min-width: 7.25rem;
+        white-space: nowrap;
       }
       .matrix-phrase > strong {
-        display: block;
-        font-size: 0.9rem;
+        display: inline;
+        font-size: 0.85rem;
         color: var(--color-primary);
         text-transform: capitalize;
       }
-      .matrix-gesture {
+      .matrix-gesture strong {
+        display: inline;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--color-text);
+      }
+      .matrix-sub {
+        display: inline;
+        font-size: 11px;
+        line-height: 1.3;
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.4;
+        font-variant-numeric: tabular-nums;
+        white-space: normal;
       }
-      .matrix-folds {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-        margin-top: 6px;
+      .matrix-sub::before {
+        content: " · ";
       }
-      .matrix details {
-        margin: 0;
+      .matrix-sub + .matrix-sub {
+        display: block;
+        margin-top: 1px;
       }
-      .matrix summary {
-        list-style: none;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--color-primary);
-        text-transform: none;
-        letter-spacing: 0;
-        padding: 2px 0;
-        transition: color 0.2s ease, background 0.2s ease;
-      }
-      .matrix summary:hover {
-        background: rgba(0, 0, 0, 0.02);
-      }
-      .matrix summary::-webkit-details-marker {
-        display: none;
-      }
-      .matrix summary svg {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
-        transition: transform 0.2s ease;
-      }
-      .matrix details[open] summary svg {
-        transform: rotate(180deg);
-      }
-      .matrix-extra {
-        margin: 4px 0 6px;
-        font-size: 13px;
-        color: var(--muted);
-        line-height: 1.45;
-      }
-      .matrix-extra p {
-        margin: 0 0 4px;
-      }
-      .matrix-extra p:last-child {
-        margin-bottom: 0;
+      .matrix-sub + .matrix-sub::before {
+        content: none;
       }
       @media (max-width: 900px) {
         .chirp-split {
@@ -876,10 +848,10 @@
       @media (max-width: 520px) {
         .matrix th,
         .matrix td {
-          padding: 10px 6px;
+          padding: 8px 4px;
         }
-        .matrix-light {
-          min-width: 0;
+        .matrix-phrase {
+          white-space: normal;
         }
       }
 
@@ -1024,9 +996,9 @@
           <span class="hamburger"></span>
         </button>
         <ul class="navbar-menu">
-          <li><a class="nav-link" href="#light">Light</a></li>
+          <li><a class="nav-link" href="#cook">Cook</a></li>
           <li><a class="nav-link" href="#wear">Wear</a></li>
-          <li><a class="nav-link" href="#chirps">Chirps</a></li>
+          <li><a class="nav-link" href="#hear">Hear</a></li>
         </ul>
       </div>
     </nav>
@@ -1042,8 +1014,8 @@
               bird — quiet until the air asks for a window.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#light">See the light</a>
-              <a class="btn btn-secondary" href="#chirps">Hear the chirps</a>
+              <a class="btn btn-primary" href="#cook">Cook</a>
+              <a class="btn btn-secondary" href="#hear">Hear</a>
             </div>
           </div>
           <div class="hero-visual">
@@ -1093,13 +1065,13 @@
         </div>
       </section>
 
-      <section class="light" id="light">
+      <section class="light" id="cook">
         <div class="wrap">
           <p class="section-kicker">Bring nature back</p>
-          <h2>Light</h2>
+          <h2>Cook</h2>
           <p class="lede">
-            Same bird, same fridge. Only the glow changes. Tap a state to put it
-            on the door.
+            Same bird, same fridge. The glow changes, and the chirp with it.
+            Tap a state to put it on the door.
           </p>
           <div class="gallery" id="gallery"></div>
         </div>
@@ -1109,47 +1081,50 @@
         <div class="wrap">
           <div class="wear-split">
             <div class="wear-copy">
-              <p class="section-kicker">The other home</p>
+              <p class="section-kicker">Wear</p>
               <h2>Same bird, closer.</h2>
               <p class="lede">
-                A slim bone strap. The canary sits on a wrist instead of across
-                a kitchen. Light still answers one question — idle, caution, or
-                alert. When the air needs exchanging, the bird turns red and the
-                chirp is felt.
+                A slim bone strap. The canary sits on a wrist, out of the
+                kitchen. When a fire is close, the air goes wrong before the
+                ridge looks like it. The bird turns red. The chirp is felt.
               </p>
               <ul class="wear-notes">
                 <li>Jewelry, not a tracker.</li>
-                <li>Felt on the skin, not shouted across a room.</li>
+                <li>Felt on the trail, not shouted across a kitchen.</li>
               </ul>
             </div>
             <div class="wear-visual">
               <div class="wear-still">
                 <img
-                  id="wear-still"
-                  src="renders/kanarin-wristband-idle.png"
-                  alt="Kanarin wristband, frost bird with soft amber idle glow"
+                  src="renders/kanarin-wristband-oneshot-worn-alert.png"
+                  alt="Kanarin on a wrist, frost bird glowing alert red"
                   width="1600"
                   height="1200"
                 />
               </div>
-              <p class="hero-caption">
-                <span
-                  class="led"
-                  id="wear-led"
-                  style="--glow: var(--glow-amber)"
-                ></span>
-                <span id="wear-state">Amber — Caution</span>
-              </p>
+              <p class="hero-caption">On the trail</p>
             </div>
           </div>
-          <div class="gallery three wear-gallery" id="wear-gallery"></div>
+          <div class="wear-views">
+            <figure class="wear-view">
+              <div class="wear-still object">
+                <img
+                  src="renders/kanarin-wristband-oneshot-off.png"
+                  alt="Kanarin oneshot strap, unlit frost bird on linen"
+                  width="1600"
+                  height="1200"
+                />
+              </div>
+              <figcaption class="hero-caption">The object</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
-      <section class="chirps" id="chirps">
+      <section class="chirps" id="hear">
         <div class="wrap">
           <p class="section-kicker">Language</p>
-          <h2>Chirps</h2>
+          <h2>Hear</h2>
           <p class="lede">
             Heard preview: canary gestures around 2–6 kHz. Felt on the bead: the
             same envelopes, quieter. Idle, Caution, and Breathe stay silent.
@@ -1222,9 +1197,9 @@
         <div>
           <h4>On this page</h4>
           <ul>
-            <li><a href="#light">Light</a></li>
+            <li><a href="#cook">Cook</a></li>
             <li><a href="#wear">Wear</a></li>
-            <li><a href="#chirps">Chirps</a></li>
+            <li><a href="#hear">Hear</a></li>
           </ul>
         </div>
         <div>
@@ -1283,36 +1258,6 @@
           caption: "Alert",
           src: "renders/kanarin-fridge-alert.png",
           alt: "Kanarin on a fridge, glowing alert red",
-          glow: "var(--glow-red)",
-          hero: "Red — Alert",
-        },
-      ];
-
-      const WEAR = [
-        {
-          id: "off",
-          label: "Off",
-          caption: "Idle",
-          src: "renders/kanarin-wristband-off.png",
-          alt: "Kanarin wristband, unlit frost, light off",
-          glow: "var(--glow-off)",
-          hero: "Off — Idle",
-        },
-        {
-          id: "idle",
-          label: "Amber",
-          caption: "Caution",
-          src: "renders/kanarin-wristband-idle.png",
-          alt: "Kanarin wristband, soft amber caution glow",
-          glow: "var(--glow-amber)",
-          hero: "Amber — Caution",
-        },
-        {
-          id: "alert",
-          label: "Red",
-          caption: "Alert",
-          src: "renders/kanarin-wristband-alert.png",
-          alt: "Kanarin wristband, glowing alert red",
           glow: "var(--glow-red)",
           hero: "Red — Alert",
         },
@@ -1445,13 +1390,9 @@
         },
       ];
 
-      const CHEVRON =
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
-
       const HZ_MIN = 1600;
       const HZ_MAX = 6200;
       let selectedLight = "alert";
-      let selectedWear = "idle";
       let selected = "air";
       let ctx;
 
@@ -1466,21 +1407,6 @@
         document.getElementById("hero-state").textContent = light.hero;
         document.getElementById("hero-led").style.setProperty("--glow", light.glow);
         for (const card of document.querySelectorAll("#gallery .light-card")) {
-          const on = card.dataset.id === light.id;
-          card.classList.toggle("active", on);
-          card.setAttribute("aria-pressed", on ? "true" : "false");
-        }
-      }
-
-      function setWear(id) {
-        const light = WEAR.find((l) => l.id === id) || WEAR[2];
-        selectedWear = light.id;
-        const img = document.getElementById("wear-still");
-        img.src = light.src;
-        img.alt = light.alt;
-        document.getElementById("wear-state").textContent = light.hero;
-        document.getElementById("wear-led").style.setProperty("--glow", light.glow);
-        for (const card of document.querySelectorAll("#wear-gallery .light-card")) {
           const on = card.dataset.id === light.id;
           card.classList.toggle("active", on);
           card.setAttribute("aria-pressed", on ? "true" : "false");
@@ -1511,34 +1437,6 @@
             light.caption +
             "</span></span></span>";
           b.addEventListener("click", () => setLight(light.id));
-          root.appendChild(b);
-        }
-      }
-
-      function renderWearGallery() {
-        const root = document.getElementById("wear-gallery");
-        root.innerHTML = "";
-        for (const light of WEAR) {
-          const b = document.createElement("button");
-          b.type = "button";
-          b.className = "light-card" + (light.id === selectedWear ? " active" : "");
-          b.dataset.id = light.id;
-          b.style.setProperty("--glow", light.glow);
-          b.setAttribute("aria-pressed", light.id === selectedWear ? "true" : "false");
-          b.innerHTML =
-            '<span class="light-frame"><img src="' +
-            light.src +
-            '" alt="' +
-            light.alt +
-            '" width="640" height="640" /></span>' +
-            '<span class="light-meta"><span class="led" style="--glow:' +
-            light.glow +
-            '"></span><span><strong>' +
-            light.label +
-            "</strong><span>" +
-            light.caption +
-            "</span></span></span>";
-          b.addEventListener("click", () => setWear(light.id));
           root.appendChild(b);
         }
       }
@@ -1611,63 +1509,23 @@
         renderMatrix();
       }
 
-      function foldHtml(name, label, inner, isOpen) {
-        return (
-          "<details data-fold=\"" +
-          name +
-          "\"" +
-          (isOpen ? " open" : "") +
-          "><summary>" +
-          label +
-          CHEVRON +
-          '</summary><div class="matrix-extra">' +
-          inner +
-          "</div></details>"
-        );
-      }
-
       function renderMatrix() {
         const body = document.getElementById("matrix");
-        const open = new Set();
-        body.querySelectorAll("details[open]").forEach((el) => {
-          const tr = el.closest("tr");
-          if (tr) open.add(tr.dataset.row + ":" + el.dataset.fold);
-        });
         body.innerHTML = "";
-        MATRIX.forEach((row, i) => {
+        MATRIX.forEach((row) => {
           const phrase = row.phrase
             ? LANG.phrases.find((p) => p.id === row.phrase)
             : null;
           const tr = document.createElement("tr");
-          tr.dataset.row = String(i);
           if (row.phrase) tr.dataset.phrase = row.phrase;
           if (row.phrase && row.phrase === selected) tr.className = "active";
-          const key = String(i);
-          const gesture = phrase ? phrase.gesture : "—";
           const label = phrase ? phrase.id : "Silent";
-          let folds;
-          if (phrase) {
-            folds =
-              foldHtml(
-                "ms",
-                duration(phrase) + " ms",
-                "<p>" + phrase.pattern + "</p>",
-                open.has(key + ":ms")
-              ) +
-              foldHtml(
-                "why",
-                "Meaning",
-                "<p>" + phrase.meaning + "</p><p>" + phrase.natural + "</p>",
-                open.has(key + ":why")
-              );
-          } else {
-            folds = foldHtml(
-              "why",
-              "Why",
-              "<p>" + row.why + "</p>",
-              open.has(key + ":why")
-            );
-          }
+          const phraseMeta = phrase
+            ? duration(phrase) + " ms · " + phrase.pattern
+            : "";
+          const gesture = phrase ? phrase.gesture : "—";
+          const meaning = phrase ? phrase.meaning : row.why;
+          const natural = phrase ? phrase.natural : "";
           tr.innerHTML =
             '<td><span class="matrix-light"><span class="led" style="--glow:' +
             row.glow +
@@ -1678,15 +1536,22 @@
             "</span></span></span></td>" +
             '<td class="matrix-phrase"><strong>' +
             label +
-            '</strong><div class="matrix-folds">' +
-            folds +
-            "</div></td>" +
-            '<td class="matrix-gesture">' +
+            "</strong>" +
+            (phraseMeta
+              ? '<span class="matrix-sub">' + phraseMeta + "</span>"
+              : "") +
+            "</td>" +
+            '<td class="matrix-gesture"><strong>' +
             gesture +
+            "</strong><span class=\"matrix-sub\">" +
+            meaning +
+            "</span>" +
+            (natural
+              ? '<span class="matrix-sub">' + natural + "</span>"
+              : "") +
             "</td>";
           if (row.phrase) {
-            tr.addEventListener("click", (event) => {
-              if (event.target.closest("details")) return;
+            tr.addEventListener("click", () => {
               selected = row.phrase;
               renderPhrases();
             });
@@ -1703,9 +1568,7 @@
       function play() {
         const phrase = LANG.phrases.find((p) => p.id === selected);
         const glowId = phrase.light === "alert" ? "alert" : "idle";
-        if (document.getElementById("profile").value === "wearable") {
-          setWear(glowId);
-        } else {
+        if (document.getElementById("profile").value !== "wearable") {
           setLight(glowId);
         }
         const gainMul = LANG.profiles[document.getElementById("profile").value];
@@ -1792,7 +1655,6 @@
 
       document.getElementById("play").addEventListener("click", play);
       renderGallery();
-      renderWearGallery();
       renderPhrases();
     </script>
   </body>
