@@ -3,10 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kanarin — a canary for indoor air</title>
+    <title>Kanarin — two homes, one canary</title>
     <meta
       name="description"
-      content="A fridge bead that asks one question: does this room need a window? If yes it turns red and chirps."
+      content="A pebble on the fridge, a bead on the wrist. Indoor bird, outdoor bird. Quiet until the air asks for a window."
+    />
+    <meta name="author" content="Sal Mazz & Flo Pan" />
+    <link rel="canonical" href="https://florentinhortopan.github.io/Kanarin/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kanarin" />
+    <meta property="og:title" content="Kanarin — two homes, one canary" />
+    <meta
+      property="og:description"
+      content="A pebble on the fridge, a bead on the wrist. Indoor bird, outdoor bird. Quiet until the air asks for a window."
+    />
+    <meta
+      property="og:url"
+      content="https://florentinhortopan.github.io/Kanarin/"
+    />
+    <meta
+      property="og:image"
+      content="https://florentinhortopan.github.io/Kanarin/renders/kanarin-fridge-alert.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kanarin — two homes, one canary" />
+    <meta
+      name="twitter:description"
+      content="A pebble on the fridge, a bead on the wrist. Indoor bird, outdoor bird. Quiet until the air asks for a window."
+    />
+    <meta
+      name="twitter:image"
+      content="https://florentinhortopan.github.io/Kanarin/renders/kanarin-fridge-alert.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -589,7 +616,7 @@
         background: var(--surface);
       }
       .player {
-        margin-top: 40px;
+        margin-top: 0;
         background: var(--color-background);
         border: 1px solid var(--line);
         border-radius: var(--radius);
@@ -696,6 +723,166 @@
         color: var(--muted);
       }
 
+      .chirp-split {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .matrix-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .matrix-head h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        color: var(--color-primary);
+      }
+      .matrix-head p {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .matrix-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .matrix {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .matrix th {
+        text-align: left;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0 8px 10px;
+        border-bottom: 1px solid var(--line);
+      }
+      .matrix td {
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+        font-size: 14px;
+        color: var(--color-text);
+      }
+      .matrix tr {
+        transition: background 0.2s ease;
+      }
+      .matrix tbody tr:hover {
+        background: rgba(0, 0, 0, 0.02);
+      }
+      .matrix tbody tr[data-phrase] {
+        cursor: pointer;
+      }
+      .matrix tbody tr.active {
+        background: #f9f9f9;
+        box-shadow: inset 2px 0 0 var(--color-primary);
+      }
+      .matrix-light {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 6.75rem;
+      }
+      .matrix-light strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--color-primary);
+      }
+      .matrix-light span {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .matrix-phrase {
+        min-width: 7.25rem;
+      }
+      .matrix-phrase > strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--color-primary);
+        text-transform: capitalize;
+      }
+      .matrix-gesture {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .matrix-folds {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 6px;
+      }
+      .matrix details {
+        margin: 0;
+      }
+      .matrix summary {
+        list-style: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-transform: none;
+        letter-spacing: 0;
+        padding: 2px 0;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+      .matrix summary:hover {
+        background: rgba(0, 0, 0, 0.02);
+      }
+      .matrix summary::-webkit-details-marker {
+        display: none;
+      }
+      .matrix summary svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+      }
+      .matrix details[open] summary svg {
+        transform: rotate(180deg);
+      }
+      .matrix-extra {
+        margin: 4px 0 6px;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+      .matrix-extra p {
+        margin: 0 0 4px;
+      }
+      .matrix-extra p:last-child {
+        margin-bottom: 0;
+      }
+      @media (max-width: 900px) {
+        .chirp-split {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 520px) {
+        .matrix th,
+        .matrix td {
+          padding: 10px 6px;
+        }
+        .matrix-light {
+          min-width: 0;
+        }
+      }
+
       /* Footer */
       .footer {
         background: var(--color-primary);
@@ -745,8 +932,17 @@
         margin: 32px auto 0;
         padding-top: 24px;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px 24px;
+        flex-wrap: wrap;
         font-size: 0.85rem;
         color: rgba(255, 255, 255, 0.55);
+      }
+      .footer-bottom small {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.42);
       }
       @media (min-width: 768px) {
         .footer-bottom {
@@ -839,11 +1035,11 @@
       <section class="hero" id="top">
         <div class="hero-container">
           <div class="hero-content">
-            <p class="eyebrow">Indoor air, one question</p>
+            <p class="eyebrow">Two homes, one bird</p>
             <h1 class="hero-title">Quiet until the air isn’t.</h1>
             <p class="hero-subtitle">
-              A fridge bead that asks one question — does this room need a
-              window? If yes, it turns red and chirps.
+              A pebble on the fridge. A bead on the wrist. Indoor bird, outdoor
+              bird — quiet until the air asks for a window.
             </p>
             <div class="hero-cta">
               <a class="btn btn-primary" href="#light">See the light</a>
@@ -873,9 +1069,10 @@
           <p class="section-kicker">What it is</p>
           <h2>One signal, one action.</h2>
           <p class="lede">
-            Indoor air goes bad without looking different. A kitchen after
-            frying, a closed room after guests — nothing in the room announces
-            it. Kanarin is a pebble-sized canary for that moment.
+            The room goes still without looking different. A kitchen after
+            frying, a closed hour after guests, a walk from the door — nothing
+            announces the air. Kanarin is a pebble-sized canary for two lives:
+            magnet on the fridge, bead on the wrist.
           </p>
           <div class="problem-grid">
             <article class="problem-card">
@@ -958,35 +1155,59 @@
             same envelopes, quieter. Idle, Caution, and Breathe stay silent.
             Play lives on the edges — when the air changes, not every sample.
           </p>
-          <div class="player">
-            <div class="player-inner">
-              <div class="controls">
-                <label class="field">
-                  Mount
-                  <select id="profile">
-                    <option value="fridge">Fridge</option>
-                    <option value="wearable">Wearable</option>
-                  </select>
-                </label>
-                <label class="field">
-                  Voice
-                  <select id="voice">
-                    <option value="heard">Heard (chirp)</option>
-                    <option value="felt">Felt (buzz)</option>
-                  </select>
-                </label>
-                <button class="btn btn-primary" id="play" type="button">
-                  Play selected
-                </button>
+          <div class="chirp-split">
+            <div class="player">
+              <div class="player-inner">
+                <div class="controls">
+                  <label class="field">
+                    Mount
+                    <select id="profile">
+                      <option value="fridge">Fridge</option>
+                      <option value="wearable">Wearable</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    Voice
+                    <select id="voice">
+                      <option value="heard">Heard (chirp)</option>
+                      <option value="felt">Felt (buzz)</option>
+                    </select>
+                  </label>
+                  <button class="btn btn-primary" id="play" type="button">
+                    Play selected
+                  </button>
+                </div>
+                <p class="pair" id="pair"></p>
+                <div class="spec" id="spec" aria-hidden="true"></div>
+                <div class="phrases" id="list"></div>
+                <p class="note">
+                  Kitchen does not get a speaker. Heard is a preview so you can
+                  learn the five gestures. On the bead they are felt.
+                </p>
               </div>
-              <p class="pair" id="pair"></p>
-              <div class="spec" id="spec" aria-hidden="true"></div>
-              <div class="phrases" id="list"></div>
-              <p class="note">
-                Kitchen does not get a speaker. Heard is a preview so you can
-                learn the five gestures. On the bead they are felt.
-              </p>
             </div>
+            <aside class="player" aria-labelledby="matrix-title">
+              <div class="player-inner">
+                <div class="matrix-head">
+                  <div>
+                    <p>On light</p>
+                    <h3 id="matrix-title">Light, then the bird</h3>
+                  </div>
+                </div>
+                <div class="matrix-wrap">
+                  <table class="matrix">
+                    <thead>
+                      <tr>
+                        <th scope="col">Light</th>
+                        <th scope="col">Phrase</th>
+                        <th scope="col">Gesture</th>
+                      </tr>
+                    </thead>
+                    <tbody id="matrix"></tbody>
+                  </table>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -996,7 +1217,7 @@
       <div class="footer-container">
         <div>
           <h4>Kanarin</h4>
-          <p>A canary for indoor air. Quiet until it isn’t.</p>
+          <p>Indoor bird. Outdoor bird. Quiet until it isn’t.</p>
         </div>
         <div>
           <h4>On this page</h4>
@@ -1015,7 +1236,10 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">Kanarin, a canary for indoor air.</div>
+      <div class="footer-bottom">
+        <span>Kanarin — two homes, one canary.</span>
+        <small>Property and copyright © 2026 Sal Mazz &amp; Flo Pan.</small>
+      </div>
     </footer>
 
     <button class="back-to-top" type="button" aria-label="Back to top">
@@ -1142,7 +1366,7 @@
             gesture: "soft downsweep whistle",
             pattern: "one falling whistle",
             meaning: "Recovering — use sparingly",
-            light: "idle",
+            light: "recovering",
             natural: "One quiet tonal fall — content, not alarm.",
             notes: [
               { at: 0, dur: 40, amp: 0.22, hz0: 3000, hz1: 3600 },
@@ -1154,7 +1378,7 @@
             gesture: "greeting peck",
             pattern: "two high chips",
             meaning: "Charging started",
-            light: "idle",
+            light: "charging",
             natural: "Two tiny high upsweeps — a social chip, not a verse.",
             notes: [
               { at: 0, dur: 36, amp: 0.42, hz0: 3800, hz1: 5200 },
@@ -1163,6 +1387,66 @@
           },
         ],
       };
+
+      const MATRIX = [
+        {
+          light: "Breathe",
+          caption: "Blue",
+          glow: "var(--glow-blue)",
+          phrase: null,
+          gesture: "Silent",
+          why: "Light only. No chirp.",
+        },
+        {
+          light: "Idle",
+          caption: "Off",
+          glow: "var(--glow-off)",
+          phrase: null,
+          gesture: "Silent",
+          why: "Light only. No chirp.",
+        },
+        {
+          light: "Caution",
+          caption: "Amber",
+          glow: "var(--glow-amber)",
+          phrase: null,
+          gesture: "Silent",
+          why: "Warm the shell first. Do not nag.",
+        },
+        {
+          light: "Alert",
+          caption: "Stuffy",
+          glow: "var(--glow-red)",
+          phrase: "air",
+        },
+        {
+          light: "Alert",
+          caption: "Kitchen",
+          glow: "var(--glow-red)",
+          phrase: "cook",
+        },
+        {
+          light: "Alert",
+          caption: "Both",
+          glow: "var(--glow-red)",
+          phrase: "both",
+        },
+        {
+          light: "Recovering",
+          caption: "Amber ease",
+          glow: "var(--glow-amber)",
+          phrase: "clear",
+        },
+        {
+          light: "Charging",
+          caption: "Amber pulse",
+          glow: "var(--glow-amber)",
+          phrase: "dock",
+        },
+      ];
+
+      const CHEVRON =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 
       const HZ_MIN = 1600;
       const HZ_MAX = 6200;
@@ -1312,9 +1596,7 @@
             "</strong> — " +
             p.gesture +
             '<span class="meta">' +
-            p.meaning +
-            " · " +
-            p.natural +
+            p.pattern +
             "</span>";
           b.addEventListener("click", () => {
             selected = p.id;
@@ -1326,6 +1608,91 @@
         document.getElementById("pair").textContent =
           phrase.light + " · " + duration(phrase) + " ms · " + phrase.pattern;
         drawSpec(phrase);
+        renderMatrix();
+      }
+
+      function foldHtml(name, label, inner, isOpen) {
+        return (
+          "<details data-fold=\"" +
+          name +
+          "\"" +
+          (isOpen ? " open" : "") +
+          "><summary>" +
+          label +
+          CHEVRON +
+          '</summary><div class="matrix-extra">' +
+          inner +
+          "</div></details>"
+        );
+      }
+
+      function renderMatrix() {
+        const body = document.getElementById("matrix");
+        const open = new Set();
+        body.querySelectorAll("details[open]").forEach((el) => {
+          const tr = el.closest("tr");
+          if (tr) open.add(tr.dataset.row + ":" + el.dataset.fold);
+        });
+        body.innerHTML = "";
+        MATRIX.forEach((row, i) => {
+          const phrase = row.phrase
+            ? LANG.phrases.find((p) => p.id === row.phrase)
+            : null;
+          const tr = document.createElement("tr");
+          tr.dataset.row = String(i);
+          if (row.phrase) tr.dataset.phrase = row.phrase;
+          if (row.phrase && row.phrase === selected) tr.className = "active";
+          const key = String(i);
+          const gesture = phrase ? phrase.gesture : "—";
+          const label = phrase ? phrase.id : "Silent";
+          let folds;
+          if (phrase) {
+            folds =
+              foldHtml(
+                "ms",
+                duration(phrase) + " ms",
+                "<p>" + phrase.pattern + "</p>",
+                open.has(key + ":ms")
+              ) +
+              foldHtml(
+                "why",
+                "Meaning",
+                "<p>" + phrase.meaning + "</p><p>" + phrase.natural + "</p>",
+                open.has(key + ":why")
+              );
+          } else {
+            folds = foldHtml(
+              "why",
+              "Why",
+              "<p>" + row.why + "</p>",
+              open.has(key + ":why")
+            );
+          }
+          tr.innerHTML =
+            '<td><span class="matrix-light"><span class="led" style="--glow:' +
+            row.glow +
+            '"></span><span><strong>' +
+            row.light +
+            "</strong><span>" +
+            row.caption +
+            "</span></span></span></td>" +
+            '<td class="matrix-phrase"><strong>' +
+            label +
+            '</strong><div class="matrix-folds">' +
+            folds +
+            "</div></td>" +
+            '<td class="matrix-gesture">' +
+            gesture +
+            "</td>";
+          if (row.phrase) {
+            tr.addEventListener("click", (event) => {
+              if (event.target.closest("details")) return;
+              selected = row.phrase;
+              renderPhrases();
+            });
+          }
+          body.appendChild(tr);
+        });
       }
 
       function chirp(osc, t0, t1, hz0, hz1) {
