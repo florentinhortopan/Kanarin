@@ -1,0 +1,26 @@
+---
+description: Public site is gh-pages, not main — always publish web/
+alwaysApply: true
+---
+
+# GitHub Pages
+
+The live site is **Deploy from a branch → `gh-pages` → `/(root)`**.
+
+`web/` on `main` is the source. `gh-pages` is a **flattened copy of `web/`** (index at repo root, not `web/index.html`).
+
+Pushing `main` does **not** update https://florentinhortopan.github.io/Kanarin/
+
+## After any commit that touches `web/`
+
+```bash
+./scripts/publish-pages.sh
+```
+
+That copies `HEAD:web` onto `gh-pages` and pushes. Do it in the same turn as the `main` push. Do not wait for the user to notice the old page.
+
+## Do not
+
+- Point Pages at GitHub Actions / `actions/deploy-pages` — that fights the branch setup
+- Commit `.github/workflows/` unless the user has `workflow` scope (it was rejected once)
+- Leave the live site on an old `gh-pages` SHA after shipping `web/` changes

@@ -6,9 +6,7 @@ The name is the canary: a quiet companion that notices stale, cooked, or chemica
 
 This repository is the design history of Kanarin — concept, hardware, firmware, industrial design, and the decisions that change over time.
 
-Public page (from the `web/` folder): [florentinhortopan.github.io/Kanarin](https://florentinhortopan.github.io/Kanarin/) — latest fridge stills, light states, and the interactive chirp player. No component specs.
-
-After the first push, set **Settings → Pages → Source** to **GitHub Actions** if GitHub does not pick up the workflow on its own.
+Public page (from the `web/` folder): [florentinhortopan.github.io/Kanarin](https://florentinhortopan.github.io/Kanarin/). GitHub Pages serves the **`gh-pages`** branch at **`/`**, which is a flattened copy of `web/`. After changing the site, run `./scripts/publish-pages.sh` (pushing `main` alone is not enough).
 
 ## The product in one loop
 
