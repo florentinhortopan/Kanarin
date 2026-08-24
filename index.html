@@ -60,7 +60,7 @@
         --glow-red: #e22c2c;
         --radius: 8px;
         --container: 1120px;
-        --nav-h: 80px;
+        --nav-h: 96px;
       }
 
       * {
@@ -153,13 +153,17 @@
       }
       .navbar-logo {
         font-weight: 700;
-        font-size: 1.125rem;
-        letter-spacing: -0.02em;
+        font-size: clamp(1.85rem, 3.6vw, 2.5rem);
+        line-height: 1;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
         color: var(--color-primary);
-        transition: transform 0.3s ease;
+        transform-origin: left center;
+        transition: transform 0.3s ease, letter-spacing 0.3s ease, font-size 0.3s ease;
       }
       .navbar.scrolled .navbar-logo {
-        transform: scale(0.92);
+        transform: scale(0.72);
+        letter-spacing: 0.12em;
       }
       .navbar-toggle {
         display: none;
