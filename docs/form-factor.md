@@ -121,6 +121,10 @@ The glow *is* the silhouette. Off, you read a molded bump in the same frost rubb
 
 This is friendlier to a pouch cell in the clasp: the bird island only has to hold LED, sensors, nRF, and the LRA.
 
+Plump oneshot stills stay. A third pass **flattens** that island to the canonical fridge relief (`hardware/renders/canonical/kanarin-fridge-alert.png`): a cookie-profile cameo, a few millimeters proud of the strap, not a round figurine. Same Rams outline, same one-piece rubber, PCB still lights through the bird.
+
+Studies: `hardware/renders/kanarin-wristband-flat-{off,idle,alert}.png`, `kanarin-wristband-flat-alert-top.png`, `kanarin-wristband-flat-worn-alert.png`.
+
 ### What “nice” means here
 
 - Same frost polymer, tiny tangent beak, short tail, no eyes, no grooves.

@@ -25,6 +25,11 @@ Concept stills from the form-factor spec (bead ~25–32 mm, translucent bone/smo
 | [renders/kanarin-wristband-oneshot-alert.png](renders/kanarin-wristband-oneshot-alert.png) | One-piece LSR, red through the bird volume |
 | [renders/kanarin-wristband-oneshot-worn-idle.png](renders/kanarin-wristband-oneshot-worn-idle.png) | Same oneshot object on a wrist, amber |
 | [renders/kanarin-wristband-oneshot-worn-alert.png](renders/kanarin-wristband-oneshot-worn-alert.png) | Same oneshot object on a wrist, red |
+| [renders/kanarin-wristband-flat-off.png](renders/kanarin-wristband-flat-off.png) | Oneshot flattened to fridge cameo, unlit |
+| [renders/kanarin-wristband-flat-idle.png](renders/kanarin-wristband-flat-idle.png) | Fridge-alert flattening, amber, 3/4 |
+| [renders/kanarin-wristband-flat-alert.png](renders/kanarin-wristband-flat-alert.png) | Fridge-alert flattening, red, 3/4 |
+| [renders/kanarin-wristband-flat-alert-top.png](renders/kanarin-wristband-flat-alert-top.png) | Same flattened relief, top-down, red |
+| [renders/kanarin-wristband-flat-worn-alert.png](renders/kanarin-wristband-flat-worn-alert.png) | Flattened cameo on a wrist, red |
 | [renders/kanarin-wearable-alert.png](renders/kanarin-wearable-alert.png) | Same apron bird, whole-body red |
 | [renders/kanarin-bead-hero-idle.png](renders/kanarin-bead-hero-idle.png) | Isolated 3/4 product still, idle |
 | [renders/kanarin-fridge-across-room.png](renders/kanarin-fridge-across-room.png) | Kitchen-distance view, red fill as the signal |

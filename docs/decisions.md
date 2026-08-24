@@ -4,6 +4,12 @@ A running log of choices. Newest first. When something here conflicts with an ol
 
 Status: `accepted` · `proposed` · `open` · `superseded`
 
+## 2026-08-24 — Wrist oneshot flattened to the fridge cameo
+
+**Status:** proposed
+
+The plump oneshot bird is squashed to the canonical fridge relief: a low-profile cookie / cameo, not a round figurine. Same Rams outline, one-piece frost rubber, light through the bird. New stills `kanarin-wristband-flat-*.png`. Earlier oneshot and charm files are kept.
+
 ## 2026-08-24 — Wrist oneshot: the band is the bird
 
 **Status:** proposed
