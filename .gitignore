@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.kicad_prl
+*-backups/
+*.zip
+.env
+dist/
+build/

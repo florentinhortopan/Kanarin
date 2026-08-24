@@ -1,0 +1,107 @@
+{
+  "name": "Kanarin haptic language",
+  "driver": "DRV2605L",
+  "lraHz": 235,
+  "heardHz": [1800, 6200],
+  "maxDurationMs": 1500,
+  "notes": "Heard preview uses canary-like FM sweeps (2–6 kHz). Felt hardware stays at LRA resonance (~235 Hz) with the same envelopes — an Ø8 mm LRA cannot sing a bird. Play on state edge, not every sample.",
+  "science": {
+    "syllable": "20–200 ms; adult repertoire ~25–40 types (Gardner et al.; Angle & Coskun).",
+    "phrase": "Same syllable repeated ~0.5–1.5 s. Songs chain phrases; we never play a full song.",
+    "pitch": "Most syllables 2–7 kHz, often 2.4–4.6 kHz dominant. Shapes: upsweep, downsweep, whistle, complex arch.",
+    "climax": "Domestic canary song often ends in loud hard descending syllables (Güttinger / common description).",
+    "sexy": "Fast FM two-note trills (~13 syllables/s) are sexually salient; we borrow the rate, not the courtship meaning.",
+    "calls": "Contact and alarm sit outside song: shorter, used all day. Roller strains sit lower than ‘chopper’ canaries."
+  },
+  "profiles": {
+    "fridge": {
+      "gain": 1,
+      "why": "Steel door is a sounding board. Phrase must move a little metal."
+    },
+    "wearable": {
+      "gain": 0.55,
+      "why": "Closer to skin. Same chirp shape, less force."
+    }
+  },
+  "pairing": {
+    "off": null,
+    "idle": null,
+    "blue": null,
+    "caution": null,
+    "alert.co2": "air",
+    "alert.voc": "cook",
+    "alert.both": "both",
+    "recovering": "clear",
+    "charging": "dock"
+  },
+  "phrases": [
+    {
+      "id": "air",
+      "gesture": "contact double-cheep",
+      "natural": "Two short upsweeps — the all-day contact call, not song. ‘I’m here, look.’",
+      "pattern": "two rising chirps",
+      "meaning": "CO₂ / stuffy — open a window",
+      "light": "alert",
+      "cause": "co2",
+      "notes": [
+        { "at": 0, "dur": 110, "amp": 0.7, "hz0": 2600, "hz1": 4000 },
+        { "at": 200, "dur": 110, "amp": 0.78, "hz0": 2800, "hz1": 4300 }
+      ]
+    },
+    {
+      "id": "cook",
+      "gesture": "fast twitter trill",
+      "natural": "A short phrase of repeated downsweeps at ~13/s — kitchen sparkle, like a busy syllable trill, not Morse dots.",
+      "pattern": "four falling ticks",
+      "meaning": "VOC event — kitchen or chemistry",
+      "light": "alert",
+      "cause": "voc",
+      "notes": [
+        { "at": 0, "dur": 48, "amp": 0.72, "hz0": 4400, "hz1": 2400 },
+        { "at": 78, "dur": 48, "amp": 0.8, "hz0": 4300, "hz1": 2300 },
+        { "at": 156, "dur": 48, "amp": 0.85, "hz0": 4200, "hz1": 2200 },
+        { "at": 234, "dur": 48, "amp": 0.78, "hz0": 4100, "hz1": 2200 }
+      ]
+    },
+    {
+      "id": "both",
+      "gesture": "alarm descending verse",
+      "natural": "Hard falling syllables — the climax of canary song, and the shape of many passerine alarms. Urgent, not pretty.",
+      "pattern": "two steep drops + falling whistle",
+      "meaning": "CO₂ and VOC agree — really air this",
+      "light": "alert",
+      "cause": "both",
+      "notes": [
+        { "at": 0, "dur": 70, "amp": 0.88, "hz0": 5200, "hz1": 2800 },
+        { "at": 95, "dur": 70, "amp": 0.94, "hz0": 5000, "hz1": 2600 },
+        { "at": 200, "dur": 280, "amp": 1, "hz0": 4400, "hz1": 1800 }
+      ]
+    },
+    {
+      "id": "clear",
+      "gesture": "soft downsweep whistle",
+      "natural": "One tonal falling whistle — the long, quiet syllable type, more ‘content’ than alarm. Easy to overuse.",
+      "pattern": "one falling whistle",
+      "meaning": "Recovering — use sparingly, maybe never",
+      "light": "recovering",
+      "cause": "recover",
+      "notes": [
+        { "at": 0, "dur": 40, "amp": 0.22, "hz0": 3000, "hz1": 3600 },
+        { "at": 48, "dur": 240, "amp": 0.34, "hz0": 3600, "hz1": 2100 }
+      ]
+    },
+    {
+      "id": "dock",
+      "gesture": "greeting peck",
+      "natural": "Two tiny high upsweeps — a social chip, not a verse. Canaries peck for affection; this is the dock hello.",
+      "pattern": "two high chips",
+      "meaning": "Charging started",
+      "light": "charging",
+      "cause": "dock",
+      "notes": [
+        { "at": 0, "dur": 36, "amp": 0.42, "hz0": 3800, "hz1": 5200 },
+        { "at": 88, "dur": 36, "amp": 0.42, "hz0": 4000, "hz1": 5400 }
+      ]
+    }
+  ]
+}
